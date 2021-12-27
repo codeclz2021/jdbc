@@ -8,6 +8,8 @@ import java.sql.SQLException;
 public class AuthorApp {
 
 	public static void main(String[] args) {
+
+		//inser문
 		
 		// 0. import java.sql.*;
 		Connection conn = null;
@@ -23,12 +25,12 @@ public class AuthorApp {
 			System.out.println("접속성공");
 
 		    // 3. SQL문 준비 / 바인딩 / 실행  *****
-			
+		    
 			//문자열 만들기 --> ? 주의
-			String query ="";
-			//query = query+ "문자열"
-		    query += "insert into author";
-		    query += " values(seq_author_id.nextval, ?, ? )" ;
+			String query ="";   
+		    //query = query+ "문자열"
+		    query += " insert into author ";
+		    query += " values(seq_author_id.nextval, ?, ? ) " ;
 		    System.out.println(query);
 		    
 		    
@@ -66,10 +68,7 @@ public class AuthorApp {
 
 		}
 
-		
-		
-		
-		
+
 		
 
 	}
