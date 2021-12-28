@@ -44,11 +44,18 @@ public class AuthorSelect {
 			
 		    // 4.결과처리
 			while(rs.next()) {
+				/*
 				int authorId= rs.getInt("id");    //int authorId= rs.getInt("author_id");
 				String authorName = rs.getString("author_name");
 				String authorDesc = rs.getString("author_desc");
+				*/
 				
-				System.out.println(authorId + "\t "  + authorName + "\t " + authorDesc );
+				int authorId = rs.getInt(1);
+				String authorName = rs.getString(2);
+				String authorDesc = rs.getString(3);
+				
+				
+				System.out.println(authorId + ", "  + authorName + ", " + authorDesc );
 			}
 			
 			
