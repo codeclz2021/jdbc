@@ -5,10 +5,14 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class AuthorSelect {
 
 	public static void main(String[] args) {
+		
+		List<AuthorVo> authorList = new ArrayList<AuthorVo>();
 		
 		//작가 데이터 가져오기
 		
@@ -32,7 +36,7 @@ public class AuthorSelect {
 			query += "         author_name, ";
 			query += "         author_desc ";
 			query += " from author ";
-			System.out.println(query);
+			//System.out.println(query);
 			
 			//문자열 쿼리문으로 만들기
 			pstmt = conn.prepareStatement(query);
@@ -54,9 +58,26 @@ public class AuthorSelect {
 				String authorName = rs.getString(2);
 				String authorDesc = rs.getString(3);
 				
+				AuthorVo vo= new AuthorVo(authorId, authorName, authorDesc);
+				authorList.add(vo);
 				
-				System.out.println(authorId + ", "  + authorName + ", " + authorDesc );
+				
+				//System.out.println(authorId + ", "  + authorName + ", " + authorDesc );
 			}
+			
+			
+			//출력
+			for(int i=0; i<authorList.size(); i++ ) {
+				AuthorVo authorVo = authorList.get(i);
+				System.out.println(authorVo.getAuthorId() + ", " + authorVo.getAuthorName() + ", " + authorVo.getAuthorDesc() );
+			}
+			
+			//첫번째 작가 이름만 출력
+			AuthorVo authorVo = authorList.get(0);
+			System.out.println(authorVo.getAuthorName());
+			
+			
+			
 			
 			
 		} catch (ClassNotFoundException e) {
