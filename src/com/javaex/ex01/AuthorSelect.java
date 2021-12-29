@@ -75,10 +75,7 @@ public class AuthorSelect {
 			//첫번째 작가 이름만 출력
 			AuthorVo authorVo = authorList.get(0);
 			System.out.println(authorVo.getAuthorName());
-			
-			
-			
-			
+						
 			
 		} catch (ClassNotFoundException e) {
 		    System.out.println("error: 드라이버 로딩 실패 - " + e);
