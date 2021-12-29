@@ -14,9 +14,16 @@ public class AuthorApp {
 		//작가등록
 		authorDao.authorInsert("박경리", "경상남도 통영");
 		
+		//작가등록
+		authorDao.authorInsert("유시민", "17대 국회의원");
+		
+		
 		
 		List<AuthorVo> authorList = authorDao.authorSelect();
-		
+		for(int i=0; i<authorList.size(); i++) {
+			AuthorVo vo = authorList.get(i);
+			System.out.println(vo.getAuthorId() + ", " + vo.getAuthorName() + ", " + vo.getAuthorDesc());			
+		}
 		
 		
 		//작가수정
