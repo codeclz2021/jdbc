@@ -30,6 +30,7 @@ public class AuthorApp {
 		
 
 		
+		
 		//작가수정
 		AuthorVo authorVo = new AuthorVo(2, "박경리(수정)",  "경상남동 통영(수정)"); 
 		authorDao.authorUpdate(authorVo);
