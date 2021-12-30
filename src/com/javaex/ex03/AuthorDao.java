@@ -229,10 +229,11 @@ public class AuthorDao {
 			// 3. SQL문 준비 / 바인딩 / 실행
 			  //문자열 만들기
 			String query ="";
-			query += " select  author_id, ";
+			query += " select  author_id id, ";
 			query += "         author_name, ";
 			query += "         author_desc ";
 			query += " from author ";
+			query += " order by author_id asc ";
 			//System.out.println(query);
 			
 			//문자열 쿼리문으로 만들기
@@ -244,7 +245,7 @@ public class AuthorDao {
 			
 			// 4.결과처리
 			while(rs.next()) {
-				int authorId= rs.getInt("author_id");    
+				int authorId= rs.getInt("id");    
 				String authorName = rs.getString("author_name");
 				String authorDesc = rs.getString("author_desc");
 
